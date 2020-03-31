@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/bundle.js" ></script>
     <title>Document</title>
 </head>
 <body>
 
-    <dir id="app"
+    <div id="app">
     
-    ></dir>
+<form ></form>
+        <label for="cash-amount"></label>
+        <input type="number" id="cast-amount" v-model.number="amount">
+        <select id="currency_select" v-model="selectedCurrency">
+         <option disabled value="">Select a Currency</option>             
+         <option v-for= "(rate, currency) in convertionRates.rates" :key="currency" :value="rate">{{currency}}</option>   
+        </select>
+
+        <input type="radio" name="conversion" id="from-Euro" v-model="exchangeWay" value="fromEuro" checked>
+        <label for="from-euro">Convert from Euro</label>
+
+        <input type="radio" name="conversion" id="to-Euro" v-model="exchangeWay" value="toEuro">
+        <label for="to-euro">Convert to Euro</label>
+
+        <p> This will give you {{convertedAmount}}</p>
+
+       
+    </div>
     
 </body>
 </html>
